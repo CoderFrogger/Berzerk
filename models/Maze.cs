@@ -37,7 +37,7 @@ public class Maze{
 	}
 
 	public int getHeight() {
-		return matrix.Length;
+		return matrix.GetLength(0);
 	}
 
 	public int getWidth() {
