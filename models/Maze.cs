@@ -43,4 +43,9 @@ public class Maze{
 	public int getWidth() {
 		return matrix.GetLength(1);
 	}
+
+    internal bool isWall(object value1, object value2)
+    {
+        throw new NotImplementedException();
+    }
 }
