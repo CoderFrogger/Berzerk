@@ -13,6 +13,8 @@ class WindowGame{
 
         this.window.SetVerticalSyncEnabled(true);
         this.window.Closed += (sender, args) => {this.window.Close();};
+
+        TextureRender.LoadTextures();
     }
 
     public void run(){
