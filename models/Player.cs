@@ -1,6 +1,6 @@
 using SFML.Graphics;
 using SFML.System;
-using System.Windows.Input;
+using SFML.Window;
 
 namespace Berzerk{
     class Player{
@@ -25,10 +25,10 @@ namespace Berzerk{
         }
 
         public void userInput() {
-            bool moveUp = Keyboard.IsKeyDown(Key.W);
-            bool moveLeft = Keyboard.IsKeyDown(Key.A);
-            bool moveDown = Keyboard.IsKeyDown(Key.S);
-            bool moveRight = Keyboard.IsKeyDown(Key.D);
+            bool moveUp = Keyboard.IsKeyPressed(Keyboard.Key.W);
+            bool moveLeft = Keyboard.IsKeyPressed(Keyboard.Key.A);
+            bool moveDown = Keyboard.IsKeyPressed(Keyboard.Key.S);
+            bool moveRight = Keyboard.IsKeyPressed(Keyboard.Key.D);
 
             bool isMove = moveUp || moveDown || moveLeft || moveRight;
 
@@ -39,7 +39,7 @@ namespace Berzerk{
                 if (moveLeft) position.X -= PLAYER_SPEED;
             }
 
-            bool isFired = Keyboard.IsKeyDown(Key.Space);
+            bool isFired = Keyboard.IsKeyPressed(Keyboard.Key.Space);
             if (isFired) this.fire();
         }
 
