@@ -8,6 +8,8 @@ class WindowGame{
     private RenderWindow window;
     private VideoMode mode = new VideoMode(WIDTH, HEIGHT);
 
+    Player player;
+
     public WindowGame(){
         this.window = new RenderWindow(this.mode, TITLE);
 
@@ -15,6 +17,7 @@ class WindowGame{
         this.window.Closed += (sender, args) => {this.window.Close();};
 
         TextureRender.LoadTextures();
+        player = new Player(5, 5);
     }
 
     public void run(){
@@ -33,6 +36,7 @@ class WindowGame{
 
     private void draw(){
         this.window.Clear(Color.Black);
+        this.player.draw(this.window);
         this.window.Display();
     }
 }
