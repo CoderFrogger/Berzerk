@@ -18,10 +18,16 @@ namespace Berzerk{
         public void update() {
             this.userInput();
             this.sprite.Position = position;
+
+            for (int i = 0; i < this.bullets.Count; i++){
+                this.bullets[i].update();
+                if (this.bullets[i].Position.Y < 0) this.bullets.Remove(this.bullets[i]);
+            }
         }
 
         public void draw(RenderTarget window) {
             window.Draw(this.sprite);
+            foreach (var bullet in this.bullets) window.Draw(bullet.RectangleBullet);
         }
 
         public void userInput() {
@@ -45,7 +51,7 @@ namespace Berzerk{
 
         private void fire(){ //TODO: directional firing
             this.delay++;
-            if(this.delay >= 15){
+            if(this.delay >= 10){
                 this.bullets.Add(new Bullet(this.position));
                 this.delay = 0;
             }
