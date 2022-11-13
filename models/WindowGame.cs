@@ -1,16 +1,36 @@
-using System;
 using SFML.Graphics;
 using SFML.Window;
-using SFML.System;
 
-public abstract class WindowGame{
-    Player player;
-    List<Enemy> enemies;
-    Maze maze;
-    GameRules rules;
+class WindowGame{
+    private const int WIDTH = 640;
+    private const int HEIGHT = 480;
+    private const string TITLE = "Ye Olde Gungeon";
+    private RenderWindow window;
+    private VideoMode mode = new VideoMode(WIDTH, HEIGHT);
 
-    public const int TARGET_FPS = 60;
-    public const float TIME_UNTIL_UPDATE = 1f/TARGET_FPS;
+    public WindowGame(){
+        this.window = new RenderWindow(this.mode, TITLE);
 
-    public RenderWindow Window {}
+        this.window.SetVerticalSyncEnabled(true);
+        this.window.Closed += (sender, args) => {this.window.Close();};
+    }
+
+    public void run(){
+        while(this.window.IsOpen){
+            this.handleEvents();
+            this.update();
+            this.draw();
+        }
+    }
+
+    private void handleEvents(){
+        this.window.DispatchEvents();
+    }
+
+    private void update(){}
+
+    private void draw(){
+        this.window.Clear(Color.Black);
+        this.window.Display();
+    }
 }
