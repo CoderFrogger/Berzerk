@@ -1,4 +1,4 @@
-using System.Windows.Input;
+using SFML.Graphics;
 
 namespace Berzerk{
 class GameRules {
@@ -26,6 +26,18 @@ class GameRules {
             foreach (Enemy enemy in enemies) {
                 if (true) gameOver = true;
             }
+        }
+
+        public bool enemyIsDead(Enemy enemy, Player player){
+            if (player.PlayerSprite.GetGlobalBounds().Intersects(enemy.EnemySprite.GetGlobalBounds())) return false; //TODO: toss it to the player death
+
+            for (int i = 0; i < player.bullets.Count; i++){
+                if (enemy.EnemySprite.GetGlobalBounds().Intersects(player.bullets[i].RectangleBullet.GetGlobalBounds())){
+                    player.bullets.Remove(player.bullets[i]);
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

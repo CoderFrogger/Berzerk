@@ -7,6 +7,7 @@ namespace Berzerk{
         private int delay = 0;
         public List<Bullet> bullets = new List<Bullet>();
         private Sprite sprite;
+        public Sprite PlayerSprite {get {return sprite;} }
         public const float PLAYER_SPEED = 4f;
         Vector2f position;
 

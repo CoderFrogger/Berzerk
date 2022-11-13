@@ -6,6 +6,7 @@ namespace Berzerk{
 	class Enemy {
 		private readonly Random random = new Random();
 		private Sprite sprite;
+		public Sprite EnemySprite {get {return sprite;} }
 		public const float ENEMY_SPEED = 5f;
 		Vector2f position;
 		public Vector2f Position { get { return position; } }

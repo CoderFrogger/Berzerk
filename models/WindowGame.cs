@@ -37,7 +37,7 @@ namespace Berzerk{
 
         private void update(){
             this.player.update();
-            this.enemies.generateEnemies();
+            this.enemies.update(this.player);
         }
 
         private void draw(){

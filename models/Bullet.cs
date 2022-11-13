@@ -10,7 +10,7 @@ namespace Berzerk{
         Vector2f size = new Vector2f(5, 10);
 
         public Vector2f Position {get {return position;}}
-        public RectangleShape RectangleBullet {get {return rectangle;}}
+        public RectangleShape RectangleBullet {get {return this.rectangle;}}
 
         public Bullet (Vector2f position){
             this.rectangle = new RectangleShape(size);
