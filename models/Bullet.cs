@@ -20,6 +20,7 @@ class Bullet{
 
     public void update() {
         this.position.Y -= BULLET_SPEED;
+        this.position.X += BULLET_SPEED;
         this.rectangle.Position = this.position;
     }
 }
