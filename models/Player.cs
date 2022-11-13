@@ -12,7 +12,10 @@ public class Player{
         sprite.Texture = TextureRender.PlayerTexture;
     }
 
-    public void update() {}
+    public void update() {
+        this.userInput();
+        this.sprite.Position = position;
+    }
 
     public void draw(RenderTarget window) {
         window.Draw(this.sprite);
@@ -23,5 +26,14 @@ public class Player{
         bool moveLeft = Keyboard.IsKeyDown(Key.A);
         bool moveDown = Keyboard.IsKeyDown(Key.S);
         bool moveRight = Keyboard.IsKeyDown(Key.D);
+
+        bool isMove = moveUp || moveDown || moveLeft || moveRight;
+
+        if (isMove) {
+            if (moveUp) position.Y -= PLAYER_SPEED;
+            if (moveDown) position.Y += PLAYER_SPEED;
+            if (moveRight) position.X += PLAYER_SPEED;
+            if (moveLeft) position.X -= PLAYER_SPEED;
+        }
     }
 }
