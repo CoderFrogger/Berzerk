@@ -1,3 +1,5 @@
+using System.Windows.Input;
+
 public class GameRules {
 
     private List<Enemy> enemies;
@@ -26,23 +28,27 @@ public class GameRules {
         }
     }
 
-    public void userInput(int input) {
-        switch (input) {
-            case 'q':
-                gameOver = true;
-                break;
-            case 'a':
-                player.x--;
-                break;
-            case 'd':
-                player.x++;
-                break;
-            case 'w':
-                player.y--;
-                break;
-            case 's':
-                player.y++;
-                break;
+    public void userInput() {
+        if (Console.KeyAvailable){
+            var key = Console.ReadKey(true);
+
+            switch (key.Key){
+                case ConsoleKey.W:
+                    player.y--;
+                    break;
+                case ConsoleKey.S:
+                    player.y++;
+                    break;
+                case ConsoleKey.A:
+                    player.x--;
+                    break;
+                case ConsoleKey.D:
+                    player.x++;
+                    break;
+                case ConsoleKey.Q:
+                    gameOver = true;
+                    break;
+            }
         }
         if (hitWall(player)) gameOver = true;
     }

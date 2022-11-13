@@ -1,7 +1,6 @@
 using System;
-
-public class Main {
-    public static void main(string[] args) {
+static class main {
+    public static void Main(string[] args) {
 
         Player player = new Player(5,5);
 
@@ -18,18 +17,9 @@ public class Main {
 		
 			renderer.renderGame();
 			
-			byte userInput = readUserInput();
-			
-			rules.userInput(userInput);
+			rules.userInput();
 			
 			rules.moveElements();
 		}
     }
-
-    private static byte readUserInput() {
-		byte[] bytes = new byte[10];
-		Console.ReadLine();
-		byte userInput = bytes[0];
-		return userInput;
-	}
 }
