@@ -1,3 +1,4 @@
+
 public class Enemy {
 	public int x;
 	public int y;

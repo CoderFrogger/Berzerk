@@ -27,29 +27,4 @@ public class GameRules {
             if (player.x == enemy.x && player.y == enemy.y) gameOver = true;
         }
     }
-
-    public void userInput() {
-        if (Console.KeyAvailable){
-            var key = Console.ReadKey(true);
-
-            switch (key.Key){
-                case ConsoleKey.W:
-                    player.y--;
-                    break;
-                case ConsoleKey.S:
-                    player.y++;
-                    break;
-                case ConsoleKey.A:
-                    player.x--;
-                    break;
-                case ConsoleKey.D:
-                    player.x++;
-                    break;
-                case ConsoleKey.Q:
-                    gameOver = true;
-                    break;
-            }
-        }
-        if (hitWall(player)) gameOver = true;
-    }
 }

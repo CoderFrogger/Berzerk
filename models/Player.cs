@@ -1,23 +1,24 @@
 using SFML.Graphics;
 using SFML.System;
+using System.Windows.Input;
 
 public class Player{
-    public int x;
-    public int y;
-
     private Sprite sprite;
+    public const float PLAYER_SPEED = 4f;
+    Vector2f position;
 
-    public Player(int x, int y){
+    public Player(){
         sprite = new Sprite();
         sprite.Texture = TextureRender.PlayerTexture;
-
-        this.x = x;
-        this.y = y;
     }
 
     public void update() {}
 
     public void draw(RenderTarget window) {
         window.Draw(this.sprite);
+    }
+
+    public void userInput() {
+        bool moveUp = Keyboard.IsKeyDown(Key.A);
     }
 }

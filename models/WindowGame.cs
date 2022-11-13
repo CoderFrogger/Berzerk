@@ -17,7 +17,7 @@ class WindowGame{
         this.window.Closed += (sender, args) => {this.window.Close();};
 
         TextureRender.LoadTextures();
-        player = new Player(5, 5);
+        player = new Player();
     }
 
     public void run(){
