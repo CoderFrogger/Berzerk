@@ -1,0 +1,5 @@
+C:\Users\SCP-049\Da Kod\projects\C#\Berzerk\obj\Debug\net6.0-windows\C#.csproj.AssemblyReference.cache
+C:\Users\SCP-049\Da Kod\projects\C#\Berzerk\obj\Debug\net6.0-windows\C#.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SCP-049\Da Kod\projects\C#\Berzerk\obj\Debug\net6.0-windows\C#.AssemblyInfoInputs.cache
+C:\Users\SCP-049\Da Kod\projects\C#\Berzerk\obj\Debug\net6.0-windows\C#.AssemblyInfo.cs
+C:\Users\SCP-049\Da Kod\projects\C#\Berzerk\obj\Debug\net6.0-windows\C#.csproj.CoreCompileInputs.cache

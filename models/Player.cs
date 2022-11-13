@@ -19,6 +19,9 @@ public class Player{
     }
 
     public void userInput() {
-        bool moveUp = Keyboard.IsKeyDown(Key.A);
+        bool moveUp = Keyboard.IsKeyDown(Key.W);
+        bool moveLeft = Keyboard.IsKeyDown(Key.A);
+        bool moveDown = Keyboard.IsKeyDown(Key.S);
+        bool moveRight = Keyboard.IsKeyDown(Key.D);
     }
 }
