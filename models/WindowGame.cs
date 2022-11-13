@@ -1,48 +1,50 @@
 using SFML.Graphics;
 using SFML.Window;
 
-class WindowGame{
-    private const int WIDTH = 640;
-    private const int HEIGHT = 480;
-    private const string TITLE = "Ye Olde Gungeon";
-    private RenderWindow window;
-    private VideoMode mode = new VideoMode(WIDTH, HEIGHT);
+namespace Berzerk{
+    class WindowGame{
+        private const int WIDTH = 1024;
+        private const int HEIGHT = 640;
+        private const string TITLE = "Ye Olde Gungeon";
+        private RenderWindow window;
+        private VideoMode mode = new VideoMode(WIDTH, HEIGHT);
 
-    Player player;
-    //EnemyManager enemies;
+        Player player;
+        EnemyManager enemies;
 
-    public WindowGame(){
-        this.window = new RenderWindow(this.mode, TITLE);
+        public WindowGame(){
+            this.window = new RenderWindow(this.mode, TITLE);
 
-        this.window.SetVerticalSyncEnabled(true);
-        this.window.Closed += (sender, args) => {this.window.Close();};
+            this.window.SetVerticalSyncEnabled(true);
+            this.window.Closed += (sender, args) => {this.window.Close();};
 
-        TextureRender.LoadTextures();
-        player = new Player();
-        //enemies = new EnemyManager();
-    }
-
-    public void run(){
-        while(this.window.IsOpen){
-            this.handleEvents();
-            this.update();
-            this.draw();
+            TextureRender.LoadTextures();
+            player = new Player();
+            enemies = new EnemyManager();
         }
-    }
 
-    private void handleEvents(){
-        this.window.DispatchEvents();
-    }
+        public void run(){
+            while(this.window.IsOpen){
+                this.handleEvents();
+                this.update();
+                this.draw();
+            }
+        }
 
-    private void update(){
-        this.player.update();
-        //this.enemies.generateEnemies();
-    }
+        private void handleEvents(){
+            this.window.DispatchEvents();
+        }
 
-    private void draw(){
-        this.window.Clear(Color.Blue);
-        this.player.draw(this.window);
-        //this.enemies.draw(this.window);
-        this.window.Display();
+        private void update(){
+            this.player.update();
+            this.enemies.generateEnemies();
+        }
+
+        private void draw(){
+            this.window.Clear(Color.Black);
+            this.player.draw(this.window);
+            this.enemies.draw(this.window);
+            this.window.Display();
+        }
     }
 }
