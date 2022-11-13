@@ -13,12 +13,16 @@ namespace Berzerk{
             }
 
             for (int i = 0; i <enemyCount; i++){
-                if (this.isDead(enemies[i], player)) enemies.Remove(enemies[i]);
+                if (this.isDead(enemies[i], player)) {
+                    enemies.Remove(enemies[i]);
+                    enemyCount--;
+                }
             }
         }
 
         public bool isDead(Enemy enemy, Player player){
             //if (player.PlayerSprite.GetGlobalBounds().Intersects(enemy.EnemySprite.GetGlobalBounds())) return false; //TODO: toss it to the player death
+            //TODO: add hitting walls and dying
 
             for (int i = 0; i < player.bullets.Count; i++){
                 if (enemy.EnemySprite.GetGlobalBounds().Intersects(player.bullets[i].RectangleBullet.GetGlobalBounds())){

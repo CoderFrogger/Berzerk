@@ -14,18 +14,8 @@ class GameRules {
             this.enemies = enemies;
         }
 
-        public bool hitWall(Enemy enemy){
-            return maze.isWall();
-        }
-
         public bool hitWall(Player player){
             return maze.isWall();
-        }
-
-        public void moveElements() {
-            foreach (Enemy enemy in enemies) {
-                if (true) gameOver = true;
-            }
         }
     }
 }

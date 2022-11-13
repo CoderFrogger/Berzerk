@@ -19,37 +19,33 @@ namespace Berzerk{
 			this.sprite.Position = this.position;
 		}
 
-		public void update() {
+		public void update() { //TODO: Figure out how to wander
 			Random rand = new Random();
-			switch (rand.Next(0, 8)){
-				case 0:
-					this.position.Y -= ENEMY_SPEED;
-					break;
-				case 1:
-					this.position.Y -= ENEMY_SPEED;
-					this.position.X += ENEMY_SPEED;
-					break;
-				case 2:
-					this.position.X += ENEMY_SPEED;
-					break;
-				case 3:
-					this.position.Y += ENEMY_SPEED;
-					this.position.X += ENEMY_SPEED;
-					break;
-				case 4:
-					this.position.Y += ENEMY_SPEED;
-					break;
-				case 5:
-					this.position.Y += ENEMY_SPEED;
-					this.position.X -= ENEMY_SPEED;
-					break;
-				case 6:
-					this.position.X -= ENEMY_SPEED;
-					break;
-				case 7:
-					this.position.Y -= ENEMY_SPEED;
-					this.position.X -= ENEMY_SPEED;
-					break;
+			int num = rand.Next(0, 8);
+
+			if (num==0)
+				this.position.Y -= ENEMY_SPEED;
+			if (num==1){
+				this.position.Y -= ENEMY_SPEED;
+				this.position.X += ENEMY_SPEED;
+			}
+			if (num==2)
+				this.position.X += ENEMY_SPEED;
+			if (num==3){
+				this.position.Y += ENEMY_SPEED;
+				this.position.X += ENEMY_SPEED;
+			}
+			if (num==4)
+				this.position.Y += ENEMY_SPEED;
+			if (num==5){
+				this.position.Y += ENEMY_SPEED;
+				this.position.X -= ENEMY_SPEED;
+			}
+			if (num==6)
+				this.position.X -= ENEMY_SPEED;
+			if (num==7){
+				this.position.Y -= ENEMY_SPEED;
+				this.position.X -= ENEMY_SPEED;
 			}
 		}
 
