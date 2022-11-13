@@ -1,5 +1,5 @@
 namespace Berzerk{
-    public class Maze{
+    class Maze{
         
         private int[ , ] matrix = {
                 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -33,8 +33,8 @@ namespace Berzerk{
                 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
             };
         
-        public bool isWall(int x, int y) {
-            return matrix[y , x] == 1;
+        public bool isWall() {
+            return false;
         }
 
         public int getHeight() {
