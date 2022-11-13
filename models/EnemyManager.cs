@@ -3,7 +3,6 @@ using SFML.System;
 
 namespace Berzerk{
     class EnemyManager{
-        public GameRules rules;
         public List<Enemy> enemies = new List<Enemy>();
         private int enemyCount = 5;
 
@@ -14,8 +13,20 @@ namespace Berzerk{
             }
 
             for (int i = 0; i <enemyCount; i++){
-                if (this.rules.enemyIsDead(enemies[i], player)) enemies.Remove(enemies[i]);
+                if (this.isDead(enemies[i], player)) enemies.Remove(enemies[i]);
             }
+        }
+
+        public bool isDead(Enemy enemy, Player player){
+            //if (player.PlayerSprite.GetGlobalBounds().Intersects(enemy.EnemySprite.GetGlobalBounds())) return false; //TODO: toss it to the player death
+
+            for (int i = 0; i < player.bullets.Count; i++){
+                if (enemy.EnemySprite.GetGlobalBounds().Intersects(player.bullets[i].RectangleBullet.GetGlobalBounds())){
+                    player.bullets.Remove(player.bullets[i]);
+                    return true;
+                }
+            }
+            return false;
         }
 
         public void draw(RenderTarget window){
