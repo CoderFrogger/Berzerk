@@ -9,7 +9,7 @@ class WindowGame{
     private VideoMode mode = new VideoMode(WIDTH, HEIGHT);
 
     Player player;
-    EnemyManager enemies;
+    //EnemyManager enemies;
 
     public WindowGame(){
         this.window = new RenderWindow(this.mode, TITLE);
@@ -19,7 +19,7 @@ class WindowGame{
 
         TextureRender.LoadTextures();
         player = new Player();
-        enemies = new EnemyManager();
+        //enemies = new EnemyManager();
     }
 
     public void run(){
@@ -36,13 +36,13 @@ class WindowGame{
 
     private void update(){
         this.player.update();
-        this.enemies.generateEnemies();
+        //this.enemies.generateEnemies();
     }
 
     private void draw(){
-        this.window.Clear(Color.Black);
+        this.window.Clear(Color.Blue);
         this.player.draw(this.window);
-        this.enemies.draw(this.window);
+        //this.enemies.draw(this.window);
         this.window.Display();
     }
 }
