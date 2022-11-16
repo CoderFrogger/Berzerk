@@ -16,7 +16,7 @@ namespace Berzerk{
             sprite.Texture = TextureRender.PlayerTexture;
         }
 
-        public void update() {
+        public void update(EnemyManager enemies) {
             this.userInput();
             this.sprite.Position = position;
 
@@ -56,6 +56,11 @@ namespace Berzerk{
                 this.bullets.Add(new Bullet(this.position));
                 this.delay = 0;
             }
+        }
+
+        public bool isDead(Enemy enemy, Player player){
+            if (player.PlayerSprite.GetGlobalBounds().Intersects(enemy.EnemySprite.GetGlobalBounds())) return true;
+            else return false;
         }
     }
 }
