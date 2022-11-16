@@ -14,6 +14,8 @@ namespace Berzerk{
         public Player(){
             sprite = new Sprite();
             sprite.Texture = TextureRender.PlayerTexture;
+            this.position.X = 75;
+            this.position.Y = WindowGame.HEIGHT/2;
         }
 
         public void update(EnemyManager enemies) {

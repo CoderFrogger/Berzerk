@@ -4,7 +4,7 @@ using SFML.Window;
 namespace Berzerk{
     class WindowGame{
         private const int WIDTH = 1024;
-        private const int HEIGHT = 640;
+        public const int HEIGHT = 640;
         private const string TITLE = "Ye Olde Gungeon";
         private RenderWindow window;
         private VideoMode mode = new VideoMode(WIDTH, HEIGHT);
