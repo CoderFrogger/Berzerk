@@ -10,6 +10,7 @@ namespace Berzerk{
         public Sprite PlayerSprite {get {return sprite;} }
         public const float PLAYER_SPEED = 4f;
         Vector2f position;
+        private int direction;
 
         public Player(){
             sprite = new Sprite();
@@ -23,7 +24,7 @@ namespace Berzerk{
             this.sprite.Position = position;
 
             for (int i = 0; i < this.bullets.Count; i++){
-                this.bullets[i].update();
+                this.bullets[i].update(direction);
                 if (this.bullets[i].Position.Y < 0) this.bullets.Remove(this.bullets[i]);
             }
         }
@@ -42,10 +43,10 @@ namespace Berzerk{
             bool isMove = moveUp || moveDown || moveLeft || moveRight;
 
             if (isMove) {
-                if (moveUp) position.Y -= PLAYER_SPEED;
-                if (moveDown) position.Y += PLAYER_SPEED;
-                if (moveRight) position.X += PLAYER_SPEED;
-                if (moveLeft) position.X -= PLAYER_SPEED;
+                if (moveUp) {position.Y -= PLAYER_SPEED;direction=1;}
+                if (moveDown) {position.Y += PLAYER_SPEED;direction=2;}
+                if (moveRight) {position.X += PLAYER_SPEED;direction=3;}
+                if (moveLeft) {position.X -= PLAYER_SPEED;direction=4;}
             }
 
             bool isFired = Keyboard.IsKeyPressed(Keyboard.Key.Space);

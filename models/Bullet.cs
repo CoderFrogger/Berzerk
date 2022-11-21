@@ -19,8 +19,13 @@ namespace Berzerk{
             this.position = position;
         }
 
-        public void update() {
-            this.position.Y -= BULLET_SPEED;
+        public void update(int direction) {
+
+            if(direction==1) this.position.Y -= BULLET_SPEED;
+            if(direction==2) this.position.Y += BULLET_SPEED;
+            if(direction==3) this.position.X += BULLET_SPEED;
+            if(direction==4) this.position.X -= BULLET_SPEED;
+
             this.rectangle.Position = this.position;
         }
     }
