@@ -24,7 +24,7 @@ namespace Berzerk{
             this.sprite.Position = position;
 
             for (int i = 0; i < this.bullets.Count; i++){
-                this.bullets[i].update(direction);
+                this.bullets[i].update();
                 if (this.bullets[i].Position.Y < 0) this.bullets.Remove(this.bullets[i]);
             }
         }
@@ -56,7 +56,7 @@ namespace Berzerk{
         private void fire(){ //TODO: directional firing
             this.delay++;
             if(this.delay >= 10){
-                this.bullets.Add(new Bullet(this.position));
+                this.bullets.Add(new Bullet(this.position, direction));
                 this.delay = 0;
             }
         }

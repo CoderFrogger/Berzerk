@@ -11,15 +11,17 @@ namespace Berzerk{
 
         public Vector2f Position {get {return position;}}
         public RectangleShape RectangleBullet {get {return this.rectangle;}}
+        private int direction;
 
-        public Bullet (Vector2f position){
+        public Bullet (Vector2f position, int direct){
+            direction = direct;
             this.rectangle = new RectangleShape(size);
             this.rectangle.FillColor = Color.Red;
             this.rectangle.Position = position;
             this.position = position;
         }
 
-        public void update(int direction) {
+        public void update() {
 
             if(direction==1) this.position.Y -= BULLET_SPEED;
             if(direction==2) this.position.Y += BULLET_SPEED;
