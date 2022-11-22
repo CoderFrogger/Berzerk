@@ -14,8 +14,8 @@ namespace Berzerk{
 		public Enemy() {
 			this.sprite = new Sprite();
 			this.sprite.Texture = TextureRender.EnemyTexture;
-			this.position.X = (float)this.random.Next(30, 1000);
-			this.position.Y = (float)this.random.Next(30, 620);
+			this.position.X = (float)this.random.Next(50, WindowGame.WIDTH-50);
+			this.position.Y = (float)this.random.Next(50, WindowGame.HEIGHT-50);
 			this.sprite.Position = this.position;
 		}
 
