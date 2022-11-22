@@ -53,7 +53,7 @@ namespace Berzerk{
             if (isFired) this.fire();
         }
 
-        private void fire(){ //TODO: directional firing
+        private void fire(){
             this.delay++;
             if(this.delay >= 10){
                 this.bullets.Add(new Bullet(this.position, direction));
