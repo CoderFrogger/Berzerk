@@ -4,7 +4,7 @@ using SFML.System;
 namespace Berzerk{
     class EnemyManager{
         public List<Enemy> enemies = new List<Enemy>();
-        private int enemyCount = 5;
+        public int enemyCount = 5;
 
 
         public void update(Player player){
@@ -22,9 +22,10 @@ namespace Berzerk{
                     System.Environment.Exit(0);
                 }
             }
+            if (enemyCount == 0) System.Environment.Exit(0);
         }
 
-        public bool isDead(Enemy enemy, Player player){
+        private bool isDead(Enemy enemy, Player player){
 
             for (int i = 0; i < player.bullets.Count; i++){
                 if (enemy.EnemySprite.GetGlobalBounds().Intersects(player.bullets[i].RectangleBullet.GetGlobalBounds())){

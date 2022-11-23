@@ -3,7 +3,6 @@ using SFML.System;
 
 namespace Berzerk{
     class Maze{
-        EnemyManager enemies;
         List<MazeBlock> blocks = new List<MazeBlock>();
         private int[ , ] matrix = {
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -17,7 +16,7 @@ namespace Berzerk{
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
         };
 
-        public void update(){
+        public void update(List<Enemy> enemies, Player player, int enemyCount){
             for (int i = 0; i <matrix.GetLength(0); i++){
                 for (int j = 0; j < matrix.GetLength(1); j++){
                     if(isWall(i, j) && (i==0 || i==matrix.GetLength(0)-1))
@@ -27,16 +26,17 @@ namespace Berzerk{
                 }
             }
 
-            for (int i = 0; i <matrix.GetLength(0); i++){
-                for (int j = 0; j < matrix.GetLength(1); j++){
-                    if (enemy.EnemySprite.GetGlobalBounds().Intersects(blocks[i].RectangleBlock.GetGlobalBounds())) {
-                        enemies.Remove(enemies[i]);
+            for (int i = 0; i <blocks.Count(); i++){
+                for (int j = 0; j < enemyCount; j++){
+                    if (enemies[j].EnemySprite.GetGlobalBounds().Intersects(blocks[i].RectangleBlock.GetGlobalBounds())) {
+                        enemies.Remove(enemies[j]);
                         enemyCount--;
                     }
+                }
 
-                    if (player.isDead(enemies[i], player)) {
-                        System.Environment.Exit(0);
-                    }
+                if (player.PlayerSprite.GetGlobalBounds().Intersects(blocks[i].RectangleBlock.GetGlobalBounds())) {
+                    System.Environment.Exit(0);
+                }
             }
         }
 
