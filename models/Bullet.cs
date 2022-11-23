@@ -7,7 +7,7 @@ namespace Berzerk{
         public const float BULLET_SPEED = 20f;
         Vector2f position;
 
-        Vector2f size = new Vector2f(5, 10);
+        Vector2f size = new Vector2f(10, 10);
 
         public Vector2f Position {get {return position;}}
         public RectangleShape RectangleBullet {get {return this.rectangle;}}
