@@ -28,7 +28,7 @@ namespace Berzerk{
 
         public void draw(RenderTarget window) {
             window.Draw(this.sprite);
-            foreach (var bullet in this.bullets) window.Draw(bullet.RectangleBullet);
+            foreach (var bullet in this.bullets) window.Draw(bullet.RectangleShape);
         }
 
         public void userInput() {

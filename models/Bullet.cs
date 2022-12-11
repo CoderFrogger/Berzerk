@@ -2,18 +2,12 @@ using SFML.Graphics;
 using SFML.System;
 
 namespace Berzerk{
-    class Bullet{
-        private RectangleShape rectangle;
+    class Bullet : Object{
         public const float BULLET_SPEED = 20f;
-        Vector2f position;
-
-        Vector2f size = new Vector2f(10, 10);
-
-        public Vector2f Position {get {return position;}}
-        public RectangleShape RectangleBullet {get {return this.rectangle;}}
         private int direction;
 
         public Bullet (Vector2f position, int direct){
+            size = new Vector2f(10, 10);
             direction = direct;
             this.rectangle = new RectangleShape(size);
             this.rectangle.FillColor = Color.Red;

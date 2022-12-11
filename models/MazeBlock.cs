@@ -2,13 +2,7 @@ using SFML.Graphics;
 using SFML.System;
 
 namespace Berzerk{
-    class MazeBlock{
-        
-        private RectangleShape rectangle;
-        Vector2f size;
-        Vector2f position;
-		public Vector2f Position { get { return position; } }
-        public RectangleShape RectangleBlock {get {return this.rectangle;}}
+    class MazeBlock : Object{
         
         public MazeBlock(int x, int y, int len, int wid){
             size = new Vector2f(len, wid);
