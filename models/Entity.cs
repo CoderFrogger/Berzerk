@@ -11,7 +11,7 @@ namespace Berzerk
 
         public bool isDead(Entity attacker, Entity defender){
             if (attacker.Sprite.GetGlobalBounds().Intersects(defender.Sprite.GetGlobalBounds())) return true;
-            else return false;
+            return false;
         }
     }
 }

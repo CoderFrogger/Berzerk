@@ -10,5 +10,10 @@ namespace Berzerk
         public Vector2f position;
         public Vector2f Position {get {return position;}}
         public RectangleShape RectangleShape {get {return this.rectangle;}}
+
+        public bool isKill(Entity entity, Object ob){
+            if (entity.Sprite.GetGlobalBounds().Intersects(ob.RectangleShape.GetGlobalBounds())) return true;
+            return false;
+        }
     }
 }

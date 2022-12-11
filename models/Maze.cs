@@ -28,13 +28,13 @@ namespace Berzerk{
 
             for (int i = 0; i <blocks.Count(); i++){
                 for (int j = 0; j < enemyCount; j++){
-                    if (enemies[j].Sprite.GetGlobalBounds().Intersects(blocks[i].RectangleShape.GetGlobalBounds())) {
+                    if (blocks[i].isKill(enemies[j], blocks[i])) {
                         enemies.Remove(enemies[j]);
                         enemyCount--;
                     }
                 }
 
-                if (player.Sprite.GetGlobalBounds().Intersects(blocks[i].RectangleShape.GetGlobalBounds())) {
+                if (blocks[i].isKill(player, blocks[i])) {
                     System.Environment.Exit(0);
                 }
             }
