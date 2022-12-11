@@ -22,7 +22,7 @@ namespace Berzerk{
 
             for (int i = 0; i < this.bullets.Count; i++){
                 this.bullets[i].update();
-                if (this.bullets[i].Position.Y < 0) this.bullets.Remove(this.bullets[i]);
+                if (bullets[i].isGone(this.bullets[i].Position.Y, this.bullets[i].Position.X)) this.bullets.Remove(this.bullets[i]);
             }
         }
 

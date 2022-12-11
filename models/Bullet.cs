@@ -30,5 +30,10 @@ namespace Berzerk{
 
             this.rectangle.Position = this.position;
         }
+
+        public bool isGone(float Y, float X){
+            if (Y < 0 || Y > WindowGame.HEIGHT || X < 0 || X > WindowGame.WIDTH) return true;
+            else return false;
+        }
     }
 }
