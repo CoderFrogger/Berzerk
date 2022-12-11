@@ -19,7 +19,7 @@ namespace Berzerk{
 			this.sprite.Position = this.position;
 		}
 
-		public void update() { //TODO: Figure out how to wander
+		public void update() { //:(
 			Random rand = new Random();
 			int num = rand.Next(0, 4);
 
@@ -31,6 +31,7 @@ namespace Berzerk{
 				this.position.Y += ENEMY_SPEED;
 			if (num==3)
 				this.position.X -= ENEMY_SPEED;
+
 		}
 
 		public void draw(RenderTarget window){
