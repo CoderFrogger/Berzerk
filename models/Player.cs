@@ -3,13 +3,10 @@ using SFML.System;
 using SFML.Window;
 
 namespace Berzerk{
-    class Player{
+    class Player : Entity{
         private int delay = 0;
         public List<Bullet> bullets = new List<Bullet>();
-        private Sprite sprite;
-        public Sprite PlayerSprite {get {return sprite;} }
         public const float PLAYER_SPEED = 4f;
-        Vector2f position;
         private int direction;
 
         public Player(){
@@ -59,11 +56,6 @@ namespace Berzerk{
                 this.bullets.Add(new Bullet(this.position, direction));
                 this.delay = 0;
             }
-        }
-
-        public bool isDead(Enemy enemy, Player player){
-            if (player.PlayerSprite.GetGlobalBounds().Intersects(enemy.EnemySprite.GetGlobalBounds())) return true;
-            else return false;
         }
     }
 }

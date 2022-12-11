@@ -28,7 +28,7 @@ namespace Berzerk{
         private bool isDead(Enemy enemy, Player player){
 
             for (int i = 0; i < player.bullets.Count; i++){
-                if (enemy.EnemySprite.GetGlobalBounds().Intersects(player.bullets[i].RectangleBullet.GetGlobalBounds())){
+                if (enemy.Sprite.GetGlobalBounds().Intersects(player.bullets[i].RectangleBullet.GetGlobalBounds())){
                     player.bullets.Remove(player.bullets[i]);
                     return true;
                 }
