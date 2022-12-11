@@ -8,9 +8,7 @@ namespace Berzerk{
 
 
         public void update(Player player){
-            for (int i = 0; i <enemyCount; i++){
-                enemies.Add(new Enemy());
-            }
+            generateEnemies();
 
             for (int i = 0; i <enemyCount; i++){
                 if (this.isDead(enemies[i], player)) {
@@ -45,6 +43,12 @@ namespace Berzerk{
         internal void update()
         {
             throw new NotImplementedException();
+        }
+
+        private void generateEnemies(){
+            for (int i = 0; i <enemyCount; i++){
+                enemies.Add(new Enemy());
+            }
         }
     }
 }

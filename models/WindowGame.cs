@@ -3,6 +3,7 @@ using SFML.Window;
 
 namespace Berzerk{
     class WindowGame{
+        static WindowGame? instance;
         public const int WIDTH = 1280;
         public const int HEIGHT = 720;
         private const string TITLE = "Ye Olde Gungeon";
@@ -13,7 +14,7 @@ namespace Berzerk{
         EnemyManager enemies;
         Maze maze;
 
-        public WindowGame(){
+        protected WindowGame(){
             this.window = new RenderWindow(this.mode, TITLE);
 
             this.window.SetVerticalSyncEnabled(true);
@@ -23,6 +24,14 @@ namespace Berzerk{
             player = new Player();
             enemies = new EnemyManager();
             maze = new Maze();
+        }
+
+        public static WindowGame Instance() {
+            if (instance == null)
+            {
+                instance = new WindowGame();
+            }
+            return instance;
         }
 
         public void run(){
